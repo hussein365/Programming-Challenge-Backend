@@ -1,0 +1,36 @@
+package weather;
+
+import weather.service.FootballService;
+import weather.service.FootballServiceImpl;
+import weather.service.WeatherService;
+import weather.service.WeatherServiceImpl;
+
+/**
+ * The entry class for your solution. This class is only aimed as starting point
+ * and not intended as baseline for your software design. Read: create your own
+ * classes and packages as appropriate.
+ *
+ * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
+ */
+public final class App {
+
+	/**
+	 * This is the main entry method of your program.
+	 * 
+	 * @param args The CLI arguments passed
+	 */
+	public static void main(String... args) {
+
+		// Your preparation code …
+
+		FootballService footballService = new FootballServiceImpl();
+		WeatherService weatherService = new WeatherServiceImpl();
+
+		String dayWithSmallestTempSpread = Integer.toString(weatherService.getMin().getDay()); // Your day analysis
+																								// function call …
+		System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
+
+		String teamWithSmallestGoalSpread = footballService.getMin().getTeam(); // Your goal analysis function call …
+		System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
+	}
+}
